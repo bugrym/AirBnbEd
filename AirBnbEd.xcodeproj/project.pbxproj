@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4470C7642B0D718800DAE4FC /* DestinationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470C7632B0D718800DAE4FC /* DestinationSearchView.swift */; };
 		4498E4042B04E23D00CA4812 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4498E4032B04E23D00CA4812 /* ExploreView.swift */; };
 		4498E4062B04E40B00CA4812 /* ListingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4498E4052B04E40B00CA4812 /* ListingItemView.swift */; };
 		4498E4082B06806E00CA4812 /* SearchAndFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4498E4072B06806E00CA4812 /* SearchAndFilterBar.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4470C7632B0D718800DAE4FC /* DestinationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSearchView.swift; sourceTree = "<group>"; };
 		4498E4032B04E23D00CA4812 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		4498E4052B04E40B00CA4812 /* ListingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingItemView.swift; sourceTree = "<group>"; };
 		4498E4072B06806E00CA4812 /* SearchAndFilterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndFilterBar.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				4498E4032B04E23D00CA4812 /* ExploreView.swift */,
 				4498E4072B06806E00CA4812 /* SearchAndFilterBar.swift */,
+				4470C7632B0D718800DAE4FC /* DestinationSearchView.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4498E40D2B068D3800CA4812 /* ListingImageCarouselView.swift in Sources */,
+				4470C7642B0D718800DAE4FC /* DestinationSearchView.swift in Sources */,
 				44A8E6E42AEFE3360058B765 /* ContentView.swift in Sources */,
 				4498E4062B04E40B00CA4812 /* ListingItemView.swift in Sources */,
 				4498E4042B04E23D00CA4812 /* ExploreView.swift in Sources */,
