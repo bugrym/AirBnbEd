@@ -10,11 +10,6 @@ import MapKit
 
 struct ListingDetailView: View {
     
-    var images = ["image-1",
-                  "image-2",
-                  "image-3",
-                  "image-4"]
-    
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -178,6 +173,7 @@ struct ListingDetailView: View {
             }
             .padding()
         }
+        .toolbar(.hidden, for: .tabBar)
         .ignoresSafeArea()
         .padding(.bottom, 64)
         .overlay(alignment: .bottom) {
