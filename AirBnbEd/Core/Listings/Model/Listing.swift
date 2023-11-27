@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Listing: Identifiable, Codable {
+struct Listing: Identifiable, Codable, Hashable {
     
-    struct Owner: Codable {
+    struct Owner: Codable, Hashable {
         let id: String
         let name: String
         let imageUrl: String
