@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ExploreView: View {
     
     @State private var showDestinationSearchView = false
+    @State private var showMapView = false
     @StateObject var viewModel = ExploreViewModel(service: ExploreService())
     
     var body: some View {
@@ -44,6 +46,15 @@ struct ExploreView: View {
                     ListingDetailView(listing: listing)
                         .navigationBarBackButtonHidden()
                 }
+                .overlay(alignment: .bottom) {
+                    MapButton {
+                        showMapView.toggle()
+                    }
+                    .offset(y: -16)
+                    .sheet(isPresented: $showMapView) {
+                        MapView()
+                    }
+                }
             }
         }
     }
@@ -51,4 +62,28 @@ struct ExploreView: View {
 
 #Preview {
     ExploreView()
+}
+
+
+struct MapView: View {
+    @Environment(\.dismiss) var dismiss
+    
+    var body: some View {
+        Map()
+            .overlay(alignment: .topLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundStyle(.black)
+                        .background {
+                            Circle()
+                                .fill(.white)
+                                .frame(width: 32, height: 32)
+                        }
+                        .padding(32)
+                }
+                .background(.yellow)
+            }
+    }
 }
