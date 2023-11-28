@@ -35,14 +35,15 @@ struct ListingDetailView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
+                        .padding(32)
                         .foregroundStyle(.black)
                         .background {
                             Circle()
                                 .fill(.white)
                                 .frame(width: 32, height: 32)
                         }
-                        .padding(32)
                 }
+                .padding(.top)
             }
             
             VStack(alignment: .leading, spacing: 8) {

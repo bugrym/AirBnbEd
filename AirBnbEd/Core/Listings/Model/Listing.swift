@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 
 struct Listing: Identifiable, Codable, Hashable {
     
@@ -34,6 +35,12 @@ struct Listing: Identifiable, Codable, Hashable {
     var features: [ListingFeatures]
     var amenities: [ListingAmenities]
     let type: ListingType
+}
+
+extension Listing {
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
 }
 
 enum ListingFeatures: Int, Codable, Identifiable, Hashable {

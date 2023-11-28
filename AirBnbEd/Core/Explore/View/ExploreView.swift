@@ -52,7 +52,7 @@ struct ExploreView: View {
                     }
                     .offset(y: -16)
                     .sheet(isPresented: $showMapView) {
-                        MapView()
+                        MapView(listings: viewModel.listings)
                     }
                 }
             }
@@ -67,23 +67,50 @@ struct ExploreView: View {
 
 struct MapView: View {
     @Environment(\.dismiss) var dismiss
+    @State private var position: MapCameraPosition
+    
+    private var listings = [Listing]()
+
+    init?(listings: [Listing]) {
+        self.listings = listings
+        
+        guard let listing = listings.first else {
+            return nil
+        }
+        
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: listing.latitude, longitude: listing.longitude), span: MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5))
+        
+        self._position = State(initialValue: .region(region))
+    }
     
     var body: some View {
-        Map()
-            .overlay(alignment: .topLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundStyle(.black)
-                        .background {
-                            Circle()
-                                .fill(.white)
-                                .frame(width: 32, height: 32)
-                        }
-                        .padding(32)
+        Map(position: $position) {
+            
+            ForEach(listings) { listing in
+                
+                Marker(coordinate: listing.coordinate) {
+                    Text(listing.title)
+                        .fontWeight(.semibold)
+                        .font(.subheadline)
+                    
+                    Image(systemName: "house")
                 }
-                .background(.yellow)
             }
+        }
+        .overlay(alignment: .topLeading) {
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "chevron.left")
+                    .padding(32)
+                    .foregroundStyle(.black)
+                    .background {
+                        Circle()
+                            .fill(.white)
+                            .frame(width: 32, height: 32)
+                    }
+            }
+            .padding(.top)
+        }
     }
 }
