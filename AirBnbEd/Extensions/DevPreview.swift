@@ -233,6 +233,6 @@ class DevPreview {
             features: [.selfCheckIn, .superHost],
             amenities: [.laundry, .balcony, .wifi, .pool],
             type: .villa
-        ),
+        )
     ]
 }
